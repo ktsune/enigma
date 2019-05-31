@@ -11,15 +11,25 @@ class EncryptTest < Minitest::Test
 
   def test_it_splits_key
     expected =
-      ["0", "2"],
-      ["2", "7"],
-      ["7", "1"],
-      ["1", "5"]
+      [02],
+      [27],
+      [71],
+      [15]
+
     assert_equal expected, @encrypt.split_key
   end
 
   def test_it_transforms_date
-    expected = "1025"
-    assert_equal expected, @encrypt.transform_date 
+    expected = 1025
+    assert_equal expected, @encrypt.transform_date
+  end
+
+  def test_it_adds_date_and_offset
+    expected =
+    [3],
+    [27],
+    [73],
+    [20]
+    assert_equal expected, @encrypt.add
   end
 end
