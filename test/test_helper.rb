@@ -1,5 +1,9 @@
 require 'simplecov'
 SimpleCov.start
 
-
-# Previous content of test helper now starts here
+require 'date'
+require './lib/enigma'
+require 'minitest/autorun'
+require 'minitest/pride'
+require 'pry'
+require 'mocha/minitest'
