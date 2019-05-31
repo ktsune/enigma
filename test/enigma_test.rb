@@ -7,11 +7,6 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma, @enigma
   end
 
-  # def test_it_has_attributes
-  #   assert_equal "", @enigma.message
-  #   assert_equal "", @enigma.key
-  #   assert_equal "", @enigma.date
-  # end
   #
   # def test_it_encrypts_message_with_key_and_date
   #   expected =
