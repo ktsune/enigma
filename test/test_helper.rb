@@ -1,7 +1,6 @@
 require 'simplecov'
 SimpleCov.start
 
-require 'date'
 require 'pry'
 require 'minitest/autorun'
 require 'minitest/pride'
