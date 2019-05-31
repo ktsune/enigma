@@ -1,35 +1,30 @@
 require './test/test_helper'
 
-class EncryptTest < Minitest::Test
+class OffsetTest < Minitest::Test
   def setup
-    @encrypt = Encrypt.new("hello world", "02715", "040895")
+    @offset = Offset.new("hello world", "02715", "040895")
   end
 
   def test_it_exists
-    assert_instance_of Encrypt, @encrypt
+    assert_instance_of Offset, @offset
   end
 
   def test_it_splits_key
     expected =
-      [02],
-      [27],
-      [71],
-      [15]
+      [02],[27],[71],[15]
 
-    assert_equal expected, @encrypt.split_key
+    assert_equal expected, @offset.split_key
   end
 
   def test_it_transforms_date
-    expected = 1025
-    assert_equal expected, @encrypt.transform_date
+    expected = [1], [0], [2], [5]
+    assert_equal expected, @offset.transform_date
   end
 
   def test_it_adds_date_and_offset
     expected =
-    [3],
-    [27],
-    [73],
-    [20]
-    assert_equal expected, @encrypt.add
+    [3],[27],[73],[20]
+
+    assert_equal expected, @offset.add_key_and_date
   end
 end
