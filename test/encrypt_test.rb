@@ -17,4 +17,9 @@ class EncryptTest < Minitest::Test
       ["1", "5"]
     assert_equal expected, @encrypt.split_key
   end
+
+  def test_it_transforms_date
+    expected = "1025"
+    assert_equal expected, @encrypt.transform_date 
+  end
 end

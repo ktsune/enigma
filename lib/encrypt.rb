@@ -12,4 +12,9 @@ class Encrypt
       pair
     end
   end
+
+  def transform_date
+    squared = @date.to_i**2
+    squared.to_s.slice(-4..-1)
+  end
 end
