@@ -11,7 +11,7 @@ class EnigmaTest < Minitest::Test
   # def test_it_encrypts_message_with_key_and_date
   #   expected =
   #      {
-  #        encryption: "keder ohulw",
+    #        encryption: ,
   #        key: "02715",
   #        date: "040895"
   #      }

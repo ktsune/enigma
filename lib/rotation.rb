@@ -5,44 +5,32 @@ class Rotation
     @offset = offset
   end
 
-  def assign_offsets_to_letters
-    offset_hash = {}
-    letters = 'a'..'d'
+  def find_offset(msg_index)
+    # => always return remainder of msg_index / offset length as offset index
+    offset_index = msg_index % @offset.length
+    @offset[offset_index]
+  end
 
-    @offset.each do |num|
-      letters.each do |letter|
-        offset_hash[letter] = num
+  def lookup_char(offset_value, msg_letter)
+    # => output: new char in alpha
+    alpha = ("a".."z").to_a << " "
+    found_index = 0
+    alpha.each.with_index do |letter, letter_index|
+      if letter == msg_letter
+        found_index = letter_index
       end
     end
-    offset_hash
+    rotated_alpha = alpha.rotate(offset_value)
+    rotated_alpha[found_index]
   end
 
   def shift
-  str = ""
-  alpha = ("a".."z").to_a << " "
-    # => for each letter in msg,
-    @message.split("").each_with_index do |msg_letter, index_msg|
-    # => use msg index to find offset index
-      @offset.each_with_index do |offset, offset_index|
-      # => look up alpha index using msg letter
-        if index_msg == offset_index
-          if alpha.include?(msg_letter)
-# => use new index to look up new char in alpha
-            str = alpha.rotate(index_msg + offset)
-          end
-        end
-        binding.pry
-      end
-      binding.pry
+    str = ""
+    @message.split("").each_with_index do |msg_letter, msg_index|
+      offset = find_offset(msg_index)
+      new_char = lookup_char(offset, msg_letter)
+      str += new_char
     end
+    str
   end
 end
-
-
-# @message.split("").each do |msg_letter|
-  # alpha.with_index do |letter, index|
-  #   if letter == msg_letter
-  #     assign_offsets_to_letters.each do |letter_key, offset_num|
-  #       @message.split("").rotate(index + offset_num)
-  #       # return letter of associated index
-  #         letter
