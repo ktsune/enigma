@@ -1,5 +1,6 @@
 class Rotation
-
+  attr_reader :message
+  
   def initialize(message, offset)
     @message = message
     @offset = offset

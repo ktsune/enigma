@@ -1,8 +1,7 @@
 class Offset
   attr_reader :key, :date
-  
-  def initialize(message, key, date)
-    @message = message
+
+  def initialize(key, date)
     @key = key
     @date = date
   end
