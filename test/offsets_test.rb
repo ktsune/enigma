@@ -25,11 +25,11 @@ class OffsetTest < Minitest::Test
 
   def test_it_combines_date_and_key
     expected = [02, 1], [27, 0], [71, 2], [15, 5]
+
     assert_equal expected, @offset.combine_date_and_key
   end
 
   def test_it_adds_date_and_offset
-    # skip
     expected =
     [3,27,73,20]
 
