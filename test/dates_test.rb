@@ -13,6 +13,6 @@ class DatesTest < Minitest::Test
     return_val = Date.new(2019,5,30)
     Date.stubs(:today).returns(return_val)
 
-    assert_equal "30/05/19", @dates.random_date
+    assert_equal "300519", @dates.random_date
   end
 end
