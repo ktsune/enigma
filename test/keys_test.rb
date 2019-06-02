@@ -9,7 +9,7 @@ class KeyTest < Minitest::Test
     assert_instance_of Key, @key
   end
 
-  def test_its_length_is_five 
+  def test_its_length_is_five
     assert_equal 5, @key.random.length
   end
 
