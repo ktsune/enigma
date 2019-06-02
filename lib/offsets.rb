@@ -4,7 +4,18 @@ class Offset
   def initialize(key, date)
     @key = key
     @date = date
+    p @key
+    p @date
   end
+
+  # def does_date_exist(date)
+  #    if @date != nil
+  #      transform_date
+  #    else
+  #      date = Date.new
+  #      transform_date
+  #    end
+  # end
 
   def split_key
     @key.split("").each_cons(2).map do |pair|
@@ -15,9 +26,16 @@ class Offset
   end
 
   def transform_date
-    squared = @date.to_i**2
-    get_last_four = squared.to_s.slice(-4..-1).to_i
-    get_last_four.to_s.chars.map(&:to_i)
+    if @date == nil
+      date = Dates.new
+      todays_date = date.random_date
+      @date = todays_date
+      squared = todays_date.to_i**2
+    else
+      squared = @date.to_i**2
+    end
+      get_last_four = squared.to_s.slice(-4..-1).to_i
+      get_last_four.to_s.chars.map(&:to_i)
   end
 
   def combine_date_and_key
