@@ -1,3 +1,5 @@
+# require ‘date’
+
 class Offset
   attr_reader :key, :date
 
@@ -10,7 +12,7 @@ class Offset
     if @key == nil
       key = Key.new
       @key = key.random
-    end 
+    end
     @key.split("").each_cons(2).map do |pair|
       pair.map do |string_num|
         string_num
@@ -20,8 +22,8 @@ class Offset
 
   def transform_date
     if @date == nil
-      date = Dates.new
-      todays_date = date.random_date
+      dates = Dates.new
+      todays_date = dates.random_date
       @date = todays_date
       squared = todays_date.to_i**2
     else
