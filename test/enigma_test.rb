@@ -53,9 +53,19 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @enigma.decrypt(encrypted[:encryption], "02715")
   end
 
-  # def test_it_encrypts_message_using_random_key_and_todays_date
-  #   skip
-  #   enigma.encrypt("hello world")
-  #   #=> # encryption hash here
-  # end
+  def test_it_encrypts_message_using_random_key_and_todays_date
+    # skip
+    key = Key.new
+    date = Date.today.strftime("%d%m%y")
+
+    expected =
+      {
+        encryption: "mfhatasdwm ",
+        key: key.random,
+        date: date
+      }
+    assert_equal expected, @enigma.encrypt("hello world")
+
+
+  end
 end

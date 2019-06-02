@@ -4,20 +4,13 @@ class Offset
   def initialize(key, date)
     @key = key
     @date = date
-    p @key
-    p @date
   end
 
-  # def does_date_exist(date)
-  #    if @date != nil
-  #      transform_date
-  #    else
-  #      date = Date.new
-  #      transform_date
-  #    end
-  # end
-
   def split_key
+    if @key == nil
+      key = Key.new
+      @key = key.random
+    end 
     @key.split("").each_cons(2).map do |pair|
       pair.map do |string_num|
         string_num
@@ -34,8 +27,8 @@ class Offset
     else
       squared = @date.to_i**2
     end
-      get_last_four = squared.to_s.slice(-4..-1).to_i
-      get_last_four.to_s.chars.map(&:to_i)
+    get_last_four = squared.to_s.slice(-4..-1).to_i
+    get_last_four.to_s.chars.map(&:to_i)
   end
 
   def combine_date_and_key
