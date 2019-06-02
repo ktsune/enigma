@@ -1,0 +1,1 @@
+{:decryption=>"jfbzqambtmug", :key=>"52874", :date=>"020619"}
