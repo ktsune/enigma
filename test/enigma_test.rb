@@ -54,18 +54,16 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_encrypts_message_using_random_key_and_todays_date
-    # skip
+    Kernel.stubs(:rand).returns("00234")
     key = Key.new
     date = Date.today.strftime("%d%m%y")
 
     expected =
       {
-        encryption: "mfhatasdwm ",
+        encryption: "khntrcywuof",
         key: key.random,
         date: date
       }
     assert_equal expected, @enigma.encrypt("hello world")
-
-
   end
 end
