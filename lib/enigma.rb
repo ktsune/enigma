@@ -1,5 +1,4 @@
 class Enigma
-
   def encrypt(message, key=nil, date=nil)
     encryption_hash = {}
     offset = Offset.new(key, date)
@@ -21,5 +20,4 @@ class Enigma
     decryption_hash[:date] = offset.date
     decryption_hash
   end
-
 end
