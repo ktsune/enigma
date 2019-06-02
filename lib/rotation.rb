@@ -9,7 +9,6 @@ class Rotation
   def find_offset(msg_index)
     # => always return remainder of msg_index / offset length as offset index
     offset_index = msg_index % @offset.length
-    # binding.pry
     @offset[offset_index]
   end
 
@@ -44,12 +43,12 @@ class Rotation
   end
 
   def shift
-    str = ""
+    encrypted_or_decrypted_msg = ""
     @message.split("").each_with_index do |msg_letter, msg_index|
       offset = find_offset(msg_index)
       new_char = lookup_char(offset, msg_letter)
-      str += new_char
+      encrypted_or_decrypted_msg += new_char
     end
-    str
+    encrypted_or_decrypted_msg
   end
 end
