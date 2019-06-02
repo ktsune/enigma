@@ -2,7 +2,7 @@
 
 ## Self Assessment of Evaluation Rubric:  
 
-### functionality 
+### Functionality 
 
 3: Meets Expectations 
 
@@ -24,7 +24,7 @@ All test names clearly communicate the purpose of the test. At least one test im
 
 4: Well Above Expectations 
 
-Commits => 49 
+Commits => 50
 Pull Requests => 16 
 
 At least 40 commits. At least 15 pull requests that are named and documented to clearly communicate the purpose of the pull request. No commits include multiple pieces of functionality. No commit message is ambiguous.
