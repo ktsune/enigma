@@ -14,13 +14,11 @@ class KeyTest < Minitest::Test
   end
 
   def test_random_is_a_string
-    skip
     assert @key.random.is_a? String
   end
 
   def test_it_generates_random_key
-    key = Key.new
-    key.stubs(:rand).returns("00234")
+    Kernel.stubs(:rand).returns("00234")
 
     assert_equal "00234", @key.random
   end
