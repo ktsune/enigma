@@ -14,7 +14,7 @@ class Enigma
     offset = Offset.new(key, date)
     # new_offset = offset.add_key_and_date
     rotation = Rotation.new(false, message, offset.add_key_and_date)
-    {decryption: rotation.shift, key: offset.key, }
+    {decryption: rotation.shift, key: offset.key, date: offset.date}
     # decryption_hash[:decryption] = rotation.shift
     # decryption_hash[:key] = offset.key
     # decryption_hash[:date] = offset.date
