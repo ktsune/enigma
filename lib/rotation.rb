@@ -17,15 +17,10 @@ class Rotation
     alpha = ("a".."z").to_a << " "
     found_index = 0
     alpha.each.with_index do |letter, letter_index|
-      if letter == msg_letter
-        found_index = letter_index
-      end
+      return found_index = letter_index if letter == msg_letter
     end
-    if @encrypt==true
-      rotated_alpha_encrypt(offset_value, found_index)
-    else
-      rotated_alpha_decrypt(offset_value, found_index)
-    end
+    return rotated_alpha_encrypt(offset_value, found_index) if @encrypt==true
+    return rotated_alpha_decrypt(offset_value, found_index) if @encrypt==false 
   end
 
   def rotated_alpha_encrypt(offset_value, found_index)
