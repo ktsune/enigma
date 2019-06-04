@@ -1,23 +1,13 @@
 class Enigma
   def encrypt(message, key=nil, date=nil)
-    encryption_hash = {}
     offset = Offset.new(key, date)
-    new_offset = offset.add_key_and_date
-    rotation = Rotation.new(true, message, new_offset)
-    encryption_hash[:encryption] = rotation.shift
-    encryption_hash[:key] = offset.key
-    encryption_hash[:date] = offset.date
-    encryption_hash
+    rotation = Rotation.new(true, message, offset.add_key_and_date)
+    {encryption: rotation.shift, key: offset.key, date: offset.date}
   end
 
   def decrypt(message, key, date=nil)
     offset = Offset.new(key, date)
-    # new_offset = offset.add_key_and_date
     rotation = Rotation.new(false, message, offset.add_key_and_date)
     {decryption: rotation.shift, key: offset.key, date: offset.date}
-    # decryption_hash[:decryption] = rotation.shift
-    # decryption_hash[:key] = offset.key
-    # decryption_hash[:date] = offset.date
-    # decryption_hash
   end
 end
