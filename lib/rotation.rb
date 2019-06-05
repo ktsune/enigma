@@ -13,32 +13,20 @@ class Rotation
   end
 
   def lookup_char(offset_value, msg_letter)
-    # => output: new char in alpha
     alpha = ("a".."z").to_a << " "
     found_index = 0
     alpha.each.with_index do |letter, letter_index|
-      if letter == msg_letter
-        found_index = letter_index
-      end
+      found_index = letter_index if letter == msg_letter
     end
-    if @encrypt==true
-      rotated_alpha_encrypt(offset_value, found_index)
-    else
-      rotated_alpha_decrypt(offset_value, found_index)
-    end
+    alpha.include?(msg_letter.downcase) ? rotated_alpha(offset_value, found_index) : msg_letter
   end
 
-  def rotated_alpha_encrypt(offset_value, found_index)
+  def rotated_alpha(offset_value, found_index)
     alpha = ("a".."z").to_a << " "
-
+    if !@encrypt
+      offset_value *= -1
+    end
     rotated_alpha = alpha.rotate(offset_value)
-    rotated_alpha[found_index]
-  end
-
-  def rotated_alpha_decrypt(offset_value, found_index)
-    alpha = ("a".."z").to_a << " "
-
-    rotated_alpha = alpha.rotate(offset_value * -1)
     rotated_alpha[found_index]
   end
 
