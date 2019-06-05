@@ -11,7 +11,7 @@ class Offset
       key = Key.new
       @key = key.random
     end
-    @key.split("").each_cons(2).map { |pair| pair.map { |string_num| string_num }.join("").to_i }
+    @key.split("").each_cons(2).map { |pair| pair.join("").to_i }
   end
 
   def transform_date
@@ -20,7 +20,7 @@ class Offset
       @date = dates.random_date
     end
     squared = @date.to_i**2
-    squared.to_s.slice(-4..-1).to_i.to_s.chars.map(&:to_i)
+    squared.to_s.slice(-4..-1).chars.map(&:to_i)
   end
 
   def combine_date_and_key

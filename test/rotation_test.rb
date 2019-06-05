@@ -21,7 +21,8 @@ class RotationTest < Minitest::Test
     assert_equal "keder ohulw", @rotation.shift
   end
 
-  def test_it_unshifts_chars 
-    assert_equal "e", @rotation.rotated_alpha_decrypt(-3, 1)
+  def test_it_unshifts_chars
+    rotation = Rotation.new(false, "hello world", [3,27,73,20])
+    assert_equal "e", rotation.rotated_alpha(-3, 1)
   end
 end

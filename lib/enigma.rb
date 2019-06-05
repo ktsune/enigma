@@ -1,3 +1,5 @@
+require 'pry'
+
 class Enigma
   def encrypt(message, key=nil, date=nil)
     offset = Offset.new(key, date)
